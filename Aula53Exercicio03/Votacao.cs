@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
+
 
 namespace Aula53Exercicio03
 {
     internal class Votacao
     {
-        public int VotosTotais { get; set; }
-        public int VotosNullos { get; set; }
-        public int VotosEmBranco { get; set; }
+        public double VotosTotais { get; set; }
+        public double VotosNullos { get; set; }
+        public double VotosEmBranco { get; set; }
 
         public Votacao()
         {
@@ -21,22 +20,18 @@ namespace Aula53Exercicio03
 
         public void IninicializarVotacao()
         {
-            List<Candidato> candi = CandidatoRepository.InicializarCandidatos();
-            List<Eleitor> eleit = EleitoresRepository.InicializarEleitores();
-            Console.WriteLine("-------- Candidatos --------------");
-            foreach (Candidato cand in candi)
-            {
-                Console.WriteLine(" " + cand);
-            }
-            Console.WriteLine("----------------------------------");
+            List<Candidato> candidatos = CandidatoRepository.InicializarCandidatos();
+            List<Eleitor> eleitores = EleitoresRepository.InicializarEleitores();
+  
 
-
-            while (VotosTotais < eleit.Count)
+            while (VotosTotais < eleitores.Count)
             {
+                MostrarCandidatos(candidatos);
+
                 Console.WriteLine("\n Números de Votos até agora: " + VotosTotais);
                 Console.Write("\n Digite seu titulo: ");
                 int titulo = int.Parse(Console.ReadLine());
-                Eleitor eleitorVoto = EncontrarEleitor(eleit, titulo);
+                Eleitor eleitorVoto = EncontrarEleitor(eleitores, titulo);
                 if (eleitorVoto != null)
                 {
                     if (!eleitorVoto.Votou)
@@ -52,17 +47,17 @@ namespace Aula53Exercicio03
                         }
                         else
                         {
-                            Console.Write(" Digite o número do candidato: ");
+                            Console.Write("\n Digite o número do candidato: ");
                             int numCand = int.Parse(Console.ReadLine());
-                            if (EncontrarCandidato(candi, numCand) == null)
+                            if (EncontrarCandidato(candidatos, numCand) == null)
                             {
-                                Console.WriteLine(" Candidato Não Encontrado");
+                                Console.WriteLine("\n Candidato Não Encontrado!!");
                             }
                             else
                             {
-                                Candidato candVoto = EncontrarCandidato(candi, numCand);
+                                Candidato candVoto = EncontrarCandidato(candidatos, numCand);
                                 Console.WriteLine(" Candidato Selecionado " + candVoto);
-                                Console.Write(" Confirmar Voto? S/N: ");
+                                Console.Write("\n Confirmar Voto? S/N: ");
                                 char confirVoto = char.Parse(Console.ReadLine().ToLower());
                                 if (confirVoto == 's')
                                 {
@@ -71,7 +66,7 @@ namespace Aula53Exercicio03
                                 }
                                 else
                                 {
-                                    Console.WriteLine(" Voto não Computado! ");
+                                    Console.WriteLine("\n Voto não Computado! ");
                                 }
                             }
                         }
@@ -85,16 +80,20 @@ namespace Aula53Exercicio03
                 {
                     Console.WriteLine(" Eleitor Não Encontrado !");
                 }
+                Thread.Sleep(2000);
+                Console.Clear();
             }
+            ResultadoEleicao(candidatos);
+        }
 
-            foreach(Candidato ca in candi)
+        public void MostrarCandidatos(List<Candidato> candidatos)
+        {
+            Console.WriteLine("-------- Candidatos --------------");
+            foreach (Candidato cand in candidatos)
             {
-                Console.WriteLine(ca.Resultado());
+                Console.WriteLine(" " + cand);
             }
-            Console.WriteLine(" Quantidade de Votos em Branco: " + VotosEmBranco);
-            Console.WriteLine(" Quantidade de Votos Nullos: " + VotosNullos);
-
-
+            Console.WriteLine("----------------------------------");
         }
 
         public Eleitor EncontrarEleitor(List<Eleitor> eleitores, int titulo)
@@ -112,27 +111,42 @@ namespace Aula53Exercicio03
             eleitor.Votou = true;
             VotosTotais++;
             cand.QuantidadeDeVotos++;
-            Console.WriteLine("Você votou em: " + cand);
+            Console.WriteLine("\n Você votou em: " + cand);
         }
 
         public void VotoBrancoNulo(Eleitor eleitor)
         {
-            Console.Write(" Digite B para votar em Branco ou N para votar em Nulo: ");
+            Console.Write("\n Digite B para votar em Branco ou N para votar em Nulo: ");
             char resposta = char.Parse(Console.ReadLine().ToLower());
             if (resposta == 'b')
             {
                 VotosEmBranco++;
                 VotosTotais++;
-                Console.WriteLine(" Você Votou em Branco");
+                Console.WriteLine("\n Você Votou em Branco!");
                 eleitor.Votou = true;
             }
             else if (resposta == 'n')
             {
                 VotosNullos++;
                 VotosTotais++;
-                Console.WriteLine(" Você Votou em Nulo");
+                Console.WriteLine(" Você Votou em Nulo!");
                 eleitor.Votou = true;
             }
+            else
+            {
+                Console.WriteLine("\n Voto não Computado! ");
+            }
+        }
+        
+        public void ResultadoEleicao(List<Candidato> candidatos)
+        {
+            foreach (Candidato cad in candidatos)
+            {
+                Console.WriteLine(" Quantidade de Cotos Candidado - {0}: {1} - {2}% dos Votos", cad.Nome, cad.QuantidadeDeVotos, (cad.QuantidadeDeVotos / VotosTotais * 100));
+            }
+            Console.WriteLine(" Quantidade de Votos em Branco: {0}  - {1}% dos Votos", VotosEmBranco, (VotosEmBranco / VotosTotais * 100));
+            Console.WriteLine(" Quantidade de Votos Nulos: {0}  - {1}% dos Votos",  VotosNullos,(VotosNullos/VotosTotais*100));
+
         }
     }
 

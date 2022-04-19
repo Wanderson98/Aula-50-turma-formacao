@@ -21,7 +21,7 @@ namespace Aula53Exercicio03
 
         public override string ToString()
         {
-            return Nome + " " + Titulo;
+            return Nome + " - " + Titulo.ToString("000");
         }
 
     }
@@ -33,7 +33,7 @@ namespace Aula53Exercicio03
             List<Eleitor> eleitores = new List<Eleitor>();
             eleitores.Add(new Eleitor("Joao Vitor", 01));
             eleitores.Add(new Eleitor("Ednado Pereira", 02));
-            eleitores.Add(new Eleitor("Luana Alves", 03));
+            //eleitores.Add(new Eleitor("Luana Alves", 03));
             //eleitores.Add(new Eleitor("Mariana Rios", 04));
             //eleitores.Add(new Eleitor("Cleber Vinicius", 05));
             //eleitores.Add(new Eleitor("Lucas Andrade", 06));

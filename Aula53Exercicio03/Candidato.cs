@@ -23,12 +23,7 @@ namespace Aula53Exercicio03
 
         public override string ToString()
         {
-            return Nome + " " + Partido + " Número: " + Numero;
-        }
-
-        public string Resultado()
-        {
-            return " Candidato: " + Nome + " Teve " + QuantidadeDeVotos + " Votos";
+            return Nome + " - " + Partido + " - Número: " + Numero;
         }
     }
 
