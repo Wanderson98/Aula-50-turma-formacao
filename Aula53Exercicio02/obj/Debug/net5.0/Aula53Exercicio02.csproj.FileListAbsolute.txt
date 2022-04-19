@@ -1,0 +1,16 @@
+C:\temp\ws-vs2022\CastGroup\Aula50\Aula53Exercicio02\bin\Debug\net5.0\Aula53Exercicio02.exe
+C:\temp\ws-vs2022\CastGroup\Aula50\Aula53Exercicio02\bin\Debug\net5.0\Aula53Exercicio02.deps.json
+C:\temp\ws-vs2022\CastGroup\Aula50\Aula53Exercicio02\bin\Debug\net5.0\Aula53Exercicio02.runtimeconfig.json
+C:\temp\ws-vs2022\CastGroup\Aula50\Aula53Exercicio02\bin\Debug\net5.0\Aula53Exercicio02.runtimeconfig.dev.json
+C:\temp\ws-vs2022\CastGroup\Aula50\Aula53Exercicio02\bin\Debug\net5.0\Aula53Exercicio02.dll
+C:\temp\ws-vs2022\CastGroup\Aula50\Aula53Exercicio02\bin\Debug\net5.0\Aula53Exercicio02.pdb
+C:\temp\ws-vs2022\CastGroup\Aula50\Aula53Exercicio02\obj\Debug\net5.0\Aula53Exercicio02.csproj.AssemblyReference.cache
+C:\temp\ws-vs2022\CastGroup\Aula50\Aula53Exercicio02\obj\Debug\net5.0\Aula53Exercicio02.GeneratedMSBuildEditorConfig.editorconfig
+C:\temp\ws-vs2022\CastGroup\Aula50\Aula53Exercicio02\obj\Debug\net5.0\Aula53Exercicio02.AssemblyInfoInputs.cache
+C:\temp\ws-vs2022\CastGroup\Aula50\Aula53Exercicio02\obj\Debug\net5.0\Aula53Exercicio02.AssemblyInfo.cs
+C:\temp\ws-vs2022\CastGroup\Aula50\Aula53Exercicio02\obj\Debug\net5.0\Aula53Exercicio02.csproj.CoreCompileInputs.cache
+C:\temp\ws-vs2022\CastGroup\Aula50\Aula53Exercicio02\obj\Debug\net5.0\Aula53Exercicio02.dll
+C:\temp\ws-vs2022\CastGroup\Aula50\Aula53Exercicio02\obj\Debug\net5.0\refint\Aula53Exercicio02.dll
+C:\temp\ws-vs2022\CastGroup\Aula50\Aula53Exercicio02\obj\Debug\net5.0\Aula53Exercicio02.pdb
+C:\temp\ws-vs2022\CastGroup\Aula50\Aula53Exercicio02\obj\Debug\net5.0\Aula53Exercicio02.genruntimeconfig.cache
+C:\temp\ws-vs2022\CastGroup\Aula50\Aula53Exercicio02\obj\Debug\net5.0\ref\Aula53Exercicio02.dll
